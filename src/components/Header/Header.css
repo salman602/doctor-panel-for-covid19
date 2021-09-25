@@ -1,0 +1,12 @@
+.menu{
+    background-color: #cc1b1e;
+}
+
+.menu a{
+    color: #fff;
+    margin-right: 5px;
+}
+
+.menu a:hover{
+    color: #ddd;
+}
