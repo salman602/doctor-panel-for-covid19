@@ -1,4 +1,5 @@
 import React from 'react';
+import Banner from '../Banner/Banner';
 import './Header.css'
 
 const Header = () => {
@@ -32,6 +33,7 @@ const Header = () => {
                     </div>
                 </div>
             </nav>
+            <Banner></Banner>
         </div>
     );
 };
