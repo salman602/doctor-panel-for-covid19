@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Board from '../Board/Board';
-
 import Doctor from '../Doctor/Doctor';
 
 const Doctors = () => {
+    // declare useState hook
     const [doctors, setDoctors] = useState([]);
     useEffect(() => {
+        // Load data from public/doctors.json folder
         fetch('./doctors.json')
             .then(res => res.json())
             .then(data => setDoctors(data))
     }, []);
 
     const [board, setBoard] = useState([])
+    // buttons event handler
     const handleAddDoctor = (doctor) => {
         const newBoard = [...board, doctor];
         setBoard(newBoard)
@@ -23,6 +25,7 @@ const Doctors = () => {
                     <div className="row">
                         {
                             doctors.map(doctor => <Doctor
+                                key={doctor.id}
                                 doctor={doctor}
                                 handleAddDoctor={handleAddDoctor}
                             ></Doctor>)

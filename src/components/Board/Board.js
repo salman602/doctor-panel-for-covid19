@@ -2,13 +2,13 @@ import React from 'react';
 import './Board.css'
 
 const Board = (props) => {
+    // Destructing object
     const { board } = props || {};
-    console.log(board);
-
+    // using reduce method to calculate total fees
     const totalFees = board.reduce((prevTotal, currentFees) => prevTotal + currentFees.fee, 0);
-
+    // Calculate hospital tax (i.e 10 percent of total fees)
     const hospitalTax = totalFees * 0.1;
-
+    // Calculate total cost
     const totalCost = totalFees + hospitalTax;
     return (
         <div className="board-container">
@@ -25,9 +25,6 @@ const Board = (props) => {
                     </div>
                 ))
             }
-
-
-
         </div>
     );
 };
