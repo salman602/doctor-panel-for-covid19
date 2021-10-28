@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Doctor.css'
 
 const Doctor = (props) => {
     // destructuring object
-    const { name, age, img, department, country, fee, phone } = props.doctor || {};
+    const {_id, name, age, img, department, country, fee, phone } = props.doctor || {};
     return (
         <div className="col-md-4 mb-3">
             <div className="card h-100">
@@ -23,6 +24,9 @@ const Doctor = (props) => {
 
                 <div className="card-footer bg-transparent border-success">
                     <button onClick={() => props.handleAddDoctor(props.doctor)} id="btn-status"><i className="fas fa-user-md"></i> Add to board</button>
+                    <Link to={`/doctors/update/${_id}`}>
+                        <button>Update doctor details</button>
+                    </Link>
                 </div>
             </div>
         </div>

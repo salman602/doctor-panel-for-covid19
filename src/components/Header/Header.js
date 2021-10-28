@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Banner from '../Banner/Banner';
 import './Header.css'
 
@@ -16,7 +17,8 @@ const Header = () => {
                         <ul className="navbar-nav ms-auto">
 
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/home">Home</a>
+                                {/* <a className="nav-link active" aria-current="page" href="/home">Home</a> */}
+                                <NavLink className="nav-link active" to="/">Home</NavLink>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link active" href="/services">Services</a>

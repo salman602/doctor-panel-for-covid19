@@ -1,0 +1,11 @@
+.add-doctor form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.add-doctor input{
+    width: 45%;
+    margin-bottom: 10px;
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// import { addToDb } from '../../utilities/localDB';
 import Board from '../Board/Board';
 import Doctor from '../Doctor/Doctor';
 
@@ -7,16 +8,18 @@ const Doctors = () => {
     const [doctors, setDoctors] = useState([]);
     useEffect(() => {
         // Load data from public/doctors.json folder
-        fetch('./doctors.json')
+        // Load data from backend server
+        fetch('http://localhost:5000/doctors')
             .then(res => res.json())
             .then(data => setDoctors(data))
     }, []);
 
-    const [board, setBoard] = useState([])
+    const [board, setBoard] = useState([]);
     // buttons event handler
     const handleAddDoctor = (doctor) => {
         const newBoard = [...board, doctor];
-        setBoard(newBoard)
+        setBoard(newBoard);
+        // addToDb(doctor.id);
     };
     return (
         <div className="container">
@@ -25,7 +28,7 @@ const Doctors = () => {
                     <div className="row">
                         {
                             doctors.map(doctor => <Doctor
-                                key={doctor.id}
+                                key={doctor._id}
                                 doctor={doctor}
                                 handleAddDoctor={handleAddDoctor}
                             ></Doctor>)
